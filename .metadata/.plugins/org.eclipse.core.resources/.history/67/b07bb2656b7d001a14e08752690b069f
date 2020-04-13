@@ -1,0 +1,62 @@
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
+
+public class Teki extends GameObject{
+	int interval=0;
+	public Teki(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+
+	@Override
+	void loadimage() {
+		try {
+			BufferedImage bi = ImageIO.read(new File("Spaceship.png"));
+			this.image = new Image[12];
+			for(int i=0;i<3;i++) {
+				for(int j=0;j<4;j++) {
+					image[i*4+j]=bi.getSubimage(j*48+48*4, i*48,48,48);
+				}
+			}
+
+		} catch (IOException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	void update(GameKeyListener kl) {
+		interval++;
+		if(interval<80) {
+			x+=2;
+		}else if(interval <90) {
+			y+=2;
+		}else if(interval <170) {
+			x-=2;
+		}else if(interval <180){
+			y+=2;
+		}else {
+			interval=0;
+		}
+
+		//当たり判定
+
+	}
+
+	boolean collision(GameObject obj){
+		return false;
+	}
+	@Override
+	void paint(Graphics g) {
+		g.drawImage(image[anime], x, y, null);
+		anime = (anime+1)%4;
+	}
+
+}

@@ -1,0 +1,61 @@
+import java.awt.Color;
+import java.util.ArrayList;
+
+import javax.swing.JFrame;
+
+public class Main{
+	static	ArrayList<GameObject> gos;
+
+	public static void main(String[] args) {
+		JFrame frame = new JFrame("シューティング");
+		frame.setSize(670,500);
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+
+		Jiki jiki = new Jiki();
+
+		gos = new ArrayList<GameObject>();
+		gos.add(jiki);
+
+		for(int i=0;i<5;i++) {
+			for(int j =0;j<10;j++) {
+				gos.add(new Teki(j*48+10,i*48));
+			}
+		}
+
+		GamePanel panel=new GamePanel(gos);
+
+		panel.setBackground(Color.black);
+		frame.add(panel);
+
+		GameKeyListener kl = new GameKeyListener();
+		CollisionListener cl = new CollisionListener(gos);
+		frame.addKeyListener(kl);
+
+		panel.repaint();
+		panel.revalidate();
+
+		while(true) {
+			for(int i = 0;i<gos.size();i++) {
+				gos.get(i).update(kl);
+				cl.update();
+			}
+
+			panel.repaint();
+			try {
+				Thread.sleep(30);
+			} catch (InterruptedException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
+		}
+	}
+
+	static void addGameObject(GameObject go) {
+		gos.add(go);
+	}
+
+	public static void remove(GameObject go) {
+		gos.remove(go);
+	}
+}

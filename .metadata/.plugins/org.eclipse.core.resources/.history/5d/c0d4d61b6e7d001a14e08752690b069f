@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+
+public class CollisionListener {
+	ArrayList<GameObject> gos;
+
+	public CollisionListener(ArrayList<GameObject>gos) {
+		this.gos = gos;
+	}
+	public void update(){
+		ArrayList<Teki> tekilist = new ArrayList<Teki>();
+		ArrayList<Tama> tamalist = new ArrayList<Tama>();
+		ArrayList<Jiki> jikilist = new ArrayList<Jiki>();
+		for(int i = 0;i<gos.size();i++) {
+			if(gos.get(i) instanceof Teki){
+				tekilist.add((Teki)gos.get(i));
+			}
+			if(gos.get(i) instanceof Jiki){
+				jikilist.add((Jiki)gos.get(i));
+			}
+			if(gos.get(i) instanceof Tama){
+				tamalist.add((Tama)gos.get(i));
+			}
+		}
+		for(int i = 0;i<tekilist.size();i++){
+			for(int j =0; j<tamalist.size();i++){
+
+			}
+		}
+	}
+	private boolean collisionTekiandTama(Teki teki,Tama tama){
+		if tama
+		return false;
+
+	}
+}
