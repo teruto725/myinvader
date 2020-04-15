@@ -1,0 +1,40 @@
+import java.util.ArrayList;
+
+public class GameObjectlist {
+	private ArrayList<Teki> tekilist;
+	private ArrayList<Tama> tamalist;
+	private Jiki jiki;
+	private GameObjectlist() {
+		this.tamalist= new ArrayList<Tama>();
+		this.tekilist= new ArrayList<Teki>();
+		this.jiki = new Jiki();
+	}
+	public void appendTeki(Teki t) {
+		this.tekilist.add(t);
+	}
+	public void appendTama(Tama t) {
+		this.tamalist.add(t);
+	}
+	public void appensdJiki(Jiki j) {
+		this.jiki = j;
+	}
+	public void getAll() {
+		ArrayList<GameObject> gos= new ArrayList<GameObject>();
+		for(int i=0;i<tekilist.size();i++) {
+			gos.add(tekilist.get(i));
+		}
+		for(int i=0;i<tekilist.size();i++) {
+			gos.add(tekilist.get(i));
+		}
+		gos.add(jiki);
+	}
+	public void getTekilist() {
+
+	}
+	public void getTamalist() {
+
+	}
+	public void getJiki(){
+
+	}
+}

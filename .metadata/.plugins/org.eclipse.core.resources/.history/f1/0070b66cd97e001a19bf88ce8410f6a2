@@ -1,0 +1,28 @@
+import java.util.ArrayList;
+
+public class CollisionListener {
+	ArrayList<GameObject> gos;
+
+	public CollisionListener(ArrayList<GameObject>gos) {
+		this.gos = gos;
+	}
+	public boolean update(ArrayList<GameObject>gos){//tureならゲームオーバー
+
+		for(int i = 0;i<tekilist.size();i++){
+			for(int j =0; j<tamalist.size();j++){
+
+				System.out.println(tamalist.get(0).x+":"+tamalist.get(0).y);
+				if (tekilist.get(i).collisionCheck(tamalist.get(j))){//当たったら消す
+					System.out.println("hit");
+					gos.remove(gos.indexOf(tekilist.get(i)));
+					gos.remove(gos.indexOf(tamalist.get(j)));
+				}
+			}
+			if ((tekilist.get(i).collisionCheck(jiki))){
+				return true;//ゲームオーバー
+			}
+		}
+		return false;
+	}
+
+}

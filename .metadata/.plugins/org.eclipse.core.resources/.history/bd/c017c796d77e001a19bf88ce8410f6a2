@@ -1,0 +1,15 @@
+import java.util.ArrayList;
+
+public class GameObjectlist {
+	private ArrayList<GameObject> gos;
+	private GameObjectlist() {
+
+	}
+	public void appendTeki() {
+
+	}
+	public void appendTama() {
+
+	}
+	public void appendJiki
+}

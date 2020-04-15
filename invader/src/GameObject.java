@@ -1,5 +1,6 @@
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Point;
 
 public abstract class GameObject {
 	int x,y;
@@ -11,7 +12,34 @@ public abstract class GameObject {
 	}
 	abstract void loadimage();
 
-	abstract void update(GameKeyListener kl);
+	abstract void update(GameKeyListener kl, GameObjectlist gos);
 
 	abstract void paint(Graphics g);
+
+	public boolean collisionCheck(GameObject gobj) {
+		Point[] plist = getRectPointList(gobj);
+
+		for(int i = 0;i<4;i++) {
+			if(pointCollisionCheck(plist[i])) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private boolean pointCollisionCheck(Point p) {//入ってたらtrue
+		if (this.x < p.x && this.x+width>p.x &&this.y < p.y && this.y+this.height>p.y) {
+			System.out.println("True");
+			return true;
+		}
+		return false;
+	}
+
+	private Point[] getRectPointList(GameObject gobj) {
+		Point[] plist = {new Point(gobj.x,gobj.y),
+						new Point(gobj.x,gobj.y+gobj.height),
+						new Point(gobj.x+gobj.width,gobj.y+gobj.height),
+						new Point(gobj.x+gobj.width,gobj.y)};
+		return plist;
+	}
 }

@@ -1,0 +1,32 @@
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Point;
+
+public abstract class GameObject {
+	int x,y;
+	int width,height;
+	int anime;
+	Image image[];
+	public GameObject() {
+		loadimage();
+	}
+	abstract void loadimage();
+
+	abstract void update(GameKeyListener kl);
+
+	abstract void paint(Graphics g);
+
+	public void collisionCheck(GameObject gobj) {
+		plist = getRectPointList();
+		for(int i = 0;i<4;i++) {
+
+		}
+	}
+	private void pointCollisionCheck(Point p) {
+
+	}
+	private Point[] getRectPointList() {
+		Point[] plist = {new Point(x,y),new Point(x,y+height),new Point(x+width,y+height),new Point(x+width,y)};
+		return plist;
+	}
+}

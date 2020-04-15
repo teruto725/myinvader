@@ -40,8 +40,8 @@ public class Jiki extends GameObject {
 	}
 
 	@Override
-	void update(GameKeyListener kl) {
-
+	void update(GameKeyListener kl,GameObjectlist gos) {
+		//System.out.println(x+":"+y);
 		interval= interval==0?0:interval-1;
 		if (kl.left) {
 			x -= speed;
@@ -57,7 +57,7 @@ public class Jiki extends GameObject {
 		}
 		if (kl.space) {
 			if(interval==0) {
-				Main.addGameObject(new Tama(this));
+				gos.addTama(new Tama(this));
 				interval = 10;
 			}
 		}

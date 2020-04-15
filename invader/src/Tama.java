@@ -14,10 +14,10 @@ public class Tama extends GameObject{
 	}
 
 	@Override
-	void update(GameKeyListener kl) {
+	void update(GameKeyListener kl,GameObjectlist gos) {
 		y-=10;
 		if(y<-50) {
-			Main.remove(this);
+			gos.delTama(this);
 		}
 	}
 

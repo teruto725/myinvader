@@ -1,0 +1,49 @@
+import java.util.ArrayList;
+
+public class GameObjectlist {
+	private ArrayList<Teki> tekilist;
+	private ArrayList<Tama> tamalist;
+	private Jiki jiki;
+	public GameObjectlist() {
+		this.tamalist= new ArrayList<Tama>();
+		this.tekilist= new ArrayList<Teki>();
+		this.jiki = new Jiki();
+	}
+	public void addTeki(Teki t) {
+		this.tekilist.add(t);
+	}
+	public void addTama(Tama t) {
+		this.tamalist.add(t);
+	}
+	public void delTama(Tama t) {
+		this.tamalist.remove(tamalist.indexOf(t));
+	}
+	public void addJiki(Jiki j) {
+		this.jiki = j;
+	}
+	public void remove(Jiki )
+	public ArrayList<GameObject> getAll() {
+		ArrayList<GameObject> gos= new ArrayList<GameObject>();
+		for(int i=0;i<tekilist.size();i++) {
+			gos.add(tekilist.get(i));
+		}
+		for(int i=0;i<tamalist.size();i++) {
+			gos.add(tamalist.get(i));
+		}
+		gos.add(jiki);
+		return gos;
+	}
+	public ArrayList<Teki> getTekilist() {
+		return tekilist;
+	}
+	public ArrayList<Tama> getTamalist() {
+		return tamalist;
+	}
+	public Jiki getJiki(){
+		return jiki;
+	}
+	public void addTama(Jiki jiki2) {
+		// TODO 自動生成されたメソッド・スタブ
+	}
+
+}

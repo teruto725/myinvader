@@ -1,19 +1,18 @@
 import java.awt.Graphics;
-import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
 public class GamePanel extends JPanel{
-	ArrayList<GameObject> gos;
+	GameObjectlist gos;
 
-	public GamePanel(ArrayList<GameObject>gos) {
+	public GamePanel(GameObjectlist gos) {
 		this.gos = gos;
 	}
 
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		for(GameObject go:gos) {
+		for(GameObject go:gos.getAll()) {
 			go.paint(g);
 		}
 	}

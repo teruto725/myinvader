@@ -11,6 +11,9 @@ public class Teki extends GameObject{
 	public Teki(int x, int y) {
 		this.x = x;
 		this.y = y;
+		this.height = 30;
+		this.width = 30;
+
 	}
 
 	@Override
@@ -31,7 +34,7 @@ public class Teki extends GameObject{
 	}
 
 	@Override
-	void update(GameKeyListener kl) {
+	void update(GameKeyListener kl,GameObjectlist gos) {
 		interval++;
 		if(interval<80) {
 			x+=2;
@@ -47,10 +50,6 @@ public class Teki extends GameObject{
 
 		//当たり判定
 
-	}
-
-	boolean collision(GameObject obj){
-		return false;
 	}
 	@Override
 	void paint(Graphics g) {

@@ -1,10 +1,9 @@
 import java.awt.Color;
-import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
 public class Main{
-	static	ArrayList<GameObject> gos;
+	static	GameObjectlist gos;
 
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("シューティング");
@@ -14,12 +13,12 @@ public class Main{
 
 		Jiki jiki = new Jiki();
 
-		gos = new ArrayList<GameObject>();
-		gos.add(jiki);
+		gos = new GameObjectlist();
+		gos.addJiki(jiki);
 
 		for(int i=0;i<5;i++) {
 			for(int j =0;j<10;j++) {
-				gos.add(new Teki(j*48+10,i*48));
+				gos.addTeki(new Teki(j*48+10,i*48));
 			}
 		}
 
@@ -29,24 +28,22 @@ public class Main{
 		frame.add(panel);
 
 		GameKeyListener kl = new GameKeyListener();
-		CollisionListener cl = new CollisionListener(gos);
+		CollisionListener cl = new CollisionListener();
 		frame.addKeyListener(kl);
 
 		panel.repaint();
 		panel.revalidate();
 		boolean gameoverflg = false;
 		while(!gameoverflg ) {
-			for(int i = 0;i<gos.size();i++) {
-
-				gos.get(i).update(kl);
-				if(cl.update()){
+			for(int i = 0;i<gos.getAll().size();i++) {
+				gos.getAll().get(i).update(kl,gos);
+				if(cl.update(gos)){
 					System.out.println("gamaover");
 					gameoverflg = true;
 					break;
 				}
-
+				System.out.println(gos.getTamalist().size());
 			}
-
 			panel.repaint();
 			try {
 				Thread.sleep(30);
@@ -57,11 +54,5 @@ public class Main{
 		}
 	}
 
-	static void addGameObject(GameObject go) {
-		gos.add(go);
-	}
 
-	public static void remove(GameObject go) {
-		gos.remove(go);
-	}
 }

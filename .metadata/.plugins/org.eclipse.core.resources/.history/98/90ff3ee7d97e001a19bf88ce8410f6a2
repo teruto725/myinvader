@@ -1,0 +1,19 @@
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
+public class GamePanel extends JPanel{
+	GameObjectlist gos;
+
+	public GamePanel(GameObjectlist gos) {
+		this.gos = gos;
+	}
+
+	@Override
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		for(GameObject go:gos) {
+			go.paint(g);
+		}
+	}
+}

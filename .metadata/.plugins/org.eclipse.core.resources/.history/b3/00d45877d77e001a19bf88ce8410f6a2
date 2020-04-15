@@ -1,0 +1,9 @@
+import java.util.ArrayList;
+
+public class GameObjectlist extends Aggregate {
+	private ArrayList<GameObject> gos;
+	private GameObjectlist() {
+		gos
+	}
+	public void appendTeki
+}

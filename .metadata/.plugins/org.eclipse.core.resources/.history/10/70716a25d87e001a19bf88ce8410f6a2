@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+
+public class GameObjectlist {
+	private ArrayList<Teki> tekilist;
+	private ArrayList<Tama> tamalist;
+	private Jiki jiki;
+	private GameObjectlist() {
+		this.tamalist= new ArrayList<Tama>();
+		this.tekilist= new ArrayList<Teki>();
+	}
+	public void appendTeki() {
+
+	}
+	public void appendTama() {
+
+	}
+	public void appendJiki() {
+
+	}
+	public void getAll() {
+
+	}
+	public void getTekilist() {
+
+	}
+	public void getTamalist() {
+
+	}
+	public void getJiki(){
+
+	}
+}
